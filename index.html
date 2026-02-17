@@ -1,230 +1,585 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Technical Program Management for complex, capital-intensive hardware programs spanning engineering execution, build readiness, capital expenditure strategy, and global operations.">
-    <meta name="theme-color" content="#0c0e12">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c0e12'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,sans-serif' font-size='14' font-weight='700' fill='%23b8954f'>ST</text></svg>">
+<title>Sourabh Tarodekar — Technical Program Manager</title>
 
-    <script>if(localStorage.getItem('theme')==='light'){document.documentElement.classList.add('light-pre')}</script>
-    <style>.light-pre body,.light-pre{background:#fafafa;color:#111827}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sourabh-tarodekar.github.io/">
-    <meta property="og:title" content="Sourabh Tarodekar — Technical Program Management | Hardware & Operations">
-    <meta property="og:description" content="Technical Program Management for complex, capital-intensive hardware programs spanning engineering execution, build readiness, capital expenditure strategy, and global operations.">
-    <meta property="og:site_name" content="Sourabh Tarodekar">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sourabh Tarodekar — Technical Program Management | Hardware & Operations">
-    <meta name="twitter:description" content="Technical Program Management for complex, capital-intensive hardware programs.">
+<style>
 
-    <title>Sourabh Tarodekar — Technical Program Management | Hardware & Operations</title>
+/* ===============================
+DESIGN TOKENS
+=============================== */
 
-    <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
-    <link rel="stylesheet" href="shared.css">
+:root{
 
-    <style>
-        /* ---- Index-specific: non-sticky header blends into hero ---- */
-        header {
-            position: relative;
-            padding-top: 3.5rem;
-            padding-bottom: 2rem;
-            align-items: center;
-            background: transparent;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            border-bottom: none;
-        }
-        body.light-mode header { background: transparent; }
+--bg:#080a0f;
+--surface:#0f1117;
+--text:#f0f2f7;
+--text-mid:#8b95a8;
+--text-dim:#4a5168;
+--accent:#b8954f;
 
-        #circuit-canvas { opacity: 0.6; }
+--border-subtle:rgba(255,255,255,0.08);
+--border-glow:rgba(184,149,79,0.2);
 
-        main {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 10;
-            padding: 2rem 6rem 5rem;
-        }
+--mono:'JetBrains Mono', monospace;
 
-        .hero { max-width: 860px; text-align: left; }
+}
 
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 300;
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-            color: var(--text-primary);
-        }
-        h1 strong { font-weight: 600; }
+body.light-mode{
 
-        .subtitle {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 620px;
-            line-height: 1.75;
-            font-weight: 400;
-        }
+--bg:#ffffff;
+--surface:#f8fafc;
+--text:#0f172a;
+--text-mid:#475569;
+--text-dim:#64748b;
+--accent:#1e40af;
 
-        .cta {
-            margin-top: 2.5rem;
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+--border-subtle:rgba(0,0,0,0.12);
+--border-glow:rgba(30,64,175,0.25);
 
-        .btn-secondary {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.2s ease;
-        }
-        .btn-secondary:hover { color: var(--text-primary); }
+}
 
-        /* Hero availability badge — larger than nav version */
-        .hero .availability-badge {
-            font-size: 0.75rem;
-            padding: 0.35rem 0.8rem;
-            margin-bottom: 1.5rem;
-            display: inline-flex;
-        }
+body.exec-mode{
 
-        footer {
-            background: transparent;
-            border-top: 1px solid var(--border);
-        }
+--bg:#020617;
+--surface:#0f172a;
+--text:#f8fafc;
+--text-mid:#94a3b8;
+--text-dim:#475569;
+--accent:#38bdf8;
 
-        @media (max-width: 1024px) { main { padding: 2rem 3rem 4rem; } }
-        @media (max-width: 768px) {
-            header { padding-top: 1.5rem; padding-bottom: 1rem; }
-            main { padding: 3rem 1.5rem 4rem; }
-            h1 { font-size: 2rem; }
-        }
-    </style>
+--border-subtle:rgba(56,189,248,0.25);
+--border-glow:rgba(56,189,248,0.35);
+
+}
+
+/* ===============================
+BASE
+=============================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+background:var(--bg);
+color:var(--text);
+
+font-family:'Outfit',system-ui,sans-serif;
+
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+
+transition:background .35s,color .35s;
+
+}
+
+/* ===============================
+CONTAINER
+=============================== */
+
+.shell{
+
+width:100%;
+max-width:1500px;
+
+padding:40px 60px;
+
+display:flex;
+flex-direction:column;
+gap:40px;
+
+}
+
+/* ===============================
+HEADER
+=============================== */
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+
+border-bottom:1px solid var(--border-subtle);
+
+padding-bottom:20px;
+
+}
+
+/* BRAND */
+
+.brand{
+
+display:flex;
+flex-direction:column;
+gap:6px;
+
+}
+
+.brand-name{
+
+font-size:20px;
+font-weight:800;
+letter-spacing:.08em;
+text-transform:uppercase;
+
+}
+
+.brand-title{
+
+font-size:13px;
+color:var(--accent);
+font-weight:600;
+
+}
+
+.brand-spec{
+
+font-family:var(--mono);
+font-size:12px;
+color:var(--text-dim);
+
+white-space:nowrap;
+
+}
+
+/* RIGHT SIDE */
+
+.header-right{
+
+display:flex;
+align-items:center;
+gap:10px;
+
+margin-left:auto;
+
+}
+
+/* NAV BUTTONS */
+
+.nav-btn{
+
+color:var(--text-mid);
+text-decoration:none;
+
+font-size:12px;
+font-weight:600;
+
+padding:7px 14px;
+
+border:1px solid var(--border-subtle);
+
+border-radius:4px;
+
+transition:.25s;
+
+}
+
+.nav-btn:hover{
+
+color:var(--accent);
+
+border-color:var(--accent);
+
+background:var(--surface);
+
+}
+
+/* THEME BUTTON */
+
+.theme-btn{
+
+color:var(--text-mid);
+
+background:transparent;
+
+border:1px solid var(--border-subtle);
+
+padding:7px 14px;
+
+font-size:12px;
+font-family:var(--mono);
+
+border-radius:4px;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.theme-btn:hover{
+
+color:var(--accent);
+
+border-color:var(--accent);
+
+background:var(--surface);
+
+}
+
+/* ===============================
+MAIN
+=============================== */
+
+main{
+
+display:grid;
+
+grid-template-columns:1.2fr .8fr;
+
+gap:60px;
+
+align-items:center;
+
+}
+
+/* LEFT */
+
+.hero-left{
+
+display:flex;
+flex-direction:column;
+gap:20px;
+
+}
+
+.hero-left h1{
+
+font-size:48px;
+font-weight:800;
+
+line-height:1.1;
+
+}
+
+.hero-left .highlight{
+
+color:var(--accent);
+
+}
+
+.description{
+
+font-size:18px;
+color:var(--text-mid);
+line-height:1.6;
+
+max-width:600px;
+
+}
+
+/* BADGES */
+
+.badge-row{
+
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+
+}
+
+.badge{
+
+font-family:var(--mono);
+
+font-size:12px;
+
+padding:6px 12px;
+
+border:1px solid var(--border-subtle);
+
+color:var(--text-mid);
+
+transition:.25s;
+
+}
+
+.badge:hover{
+
+color:var(--accent);
+
+border-color:var(--accent);
+
+background:var(--surface);
+
+}
+
+/* ===============================
+RIGHT STATS
+=============================== */
+
+.hero-right{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:14px;
+
+}
+
+.stat{
+
+border:1px solid var(--border-subtle);
+
+padding:20px;
+
+background:var(--surface);
+
+transition:.25s;
+
+}
+
+.stat:hover{
+
+border-color:var(--accent);
+
+box-shadow:0 0 20px var(--border-glow);
+
+}
+
+.stat-tag{
+
+font-family:var(--mono);
+
+font-size:11px;
+
+color:var(--text-dim);
+
+}
+
+.stat-value{
+
+font-size:28px;
+font-weight:700;
+
+margin-top:5px;
+
+}
+
+.stat-label{
+
+font-size:13px;
+color:var(--text-mid);
+
+}
+
+/* ===============================
+FOOTER
+=============================== */
+
+footer{
+
+display:flex;
+justify-content:space-between;
+
+border-top:1px solid var(--border-subtle);
+
+padding-top:20px;
+
+}
+
+.links{
+
+display:flex;
+gap:15px;
+
+}
+
+.links a{
+
+color:var(--text-mid);
+
+text-decoration:none;
+
+font-size:13px;
+
+transition:.25s;
+
+}
+
+.links a:hover{
+
+color:var(--accent);
+
+}
+
+/* ===============================
+RESPONSIVE
+=============================== */
+
+@media(max-width:1100px){
+
+main{
+
+grid-template-columns:1fr;
+
+}
+
+.hero-right{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <!-- Page transition overlay — fades out on load, in on navigation -->
-    <div id="page-transition" aria-hidden="true"></div>
+<div class="shell">
 
-    <canvas id="circuit-canvas" aria-hidden="true" data-lines="15" data-grid="80" data-speed="0.15"></canvas>
+<header>
 
-    <header>
-        <div class="brand">
-            <div class="brand-name">Sourabh Tarodekar</div>
-            <div class="brand-role">Technical Program Management — Hardware & Operations</div>
-        </div>
+<div class="brand">
 
-        <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav">
-            <i data-lucide="menu" size="20"></i>
-        </button>
+<div class="brand-name">
+Sourabh Tarodekar
+</div>
 
-        <nav id="main-nav" aria-label="Site navigation">
-            <div class="nav-links">
-                <a href="index.html" class="active" aria-current="page">Home</a>
-                <a href="about.html">About</a>
-                <a href="capabilities.html">Capabilities</a>
-                <a href="experience.html">Experience</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <!-- Availability badge visible in nav on desktop -->
-            <span class="availability-badge" aria-label="Currently open to new roles">
-                <span class="dot" aria-hidden="true"></span>Open to roles
-            </span>
-            <a href="resume.html" class="resume-btn" aria-label="View resume">
-                <i data-lucide="file-text" size="13" aria-hidden="true"></i> Resume
-            </a>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
-                <i data-lucide="moon" size="18" id="theme-icon"></i>
-            </button>
-        </nav>
-    </header>
+<div class="brand-title">
+Technical Program Manager
+</div>
 
-    <main>
-        <div class="hero">
+<div class="brand-spec">
+Hardware Infrastructure · Semiconductor Systems · CapEx & Capacity Planning
+</div>
 
-            <!-- Eyebrow — animates first -->
-            <div class="eyebrow fade-up">Technical Program Management</div>
+</div>
 
-            <!-- Availability badge in hero — visible on mobile too -->
-            <a href="contact.html" class="availability-badge fade-up" aria-label="Open to new roles — click to contact">
-                <span class="dot" aria-hidden="true"></span>Open to new opportunities
-            </a>
+<div class="header-right">
 
-            <!-- Headline -->
-            <h1 class="fade-up">
-                Driving complex hardware programs<br>from <strong>concept to scale</strong>
-            </h1>
+<a class="nav-btn" href="#">About</a>
 
-            <!-- Subtitle -->
-            <p class="subtitle fade-up">
-                Leading cross-functional engineering execution, build readiness, capital expenditure strategy,
-                and global supply chain delivery across capital-intensive hardware programs.
-            </p>
+<a class="nav-btn" href="#">Capabilities</a>
 
-            <!-- CTA buttons -->
-            <div class="cta fade-up">
-                <a href="capabilities.html" class="btn-primary">View Execution Capabilities</a>
-                <a href="contact.html" class="btn-secondary">
-                    Get in touch <i data-lucide="arrow-right" size="16" aria-hidden="true"></i>
-                </a>
-            </div>
+<a class="nav-btn" href="#">Experience</a>
 
-            <!-- Hero stats strip — the 3 numbers that stop scrolling -->
-            <div class="hero-stats fade-up" role="list" aria-label="Career highlights">
-                <div class="hero-stat" role="listitem">
-                    <span class="hero-stat-number">$50M+</span>
-                    <span class="hero-stat-label">Capital Managed</span>
-                </div>
-                <div class="hero-stat-divider" aria-hidden="true"></div>
-                <div class="hero-stat" role="listitem">
-                    <span class="hero-stat-number">7+</span>
-                    <span class="hero-stat-label">Years Experience</span>
-                </div>
-                <div class="hero-stat-divider" aria-hidden="true"></div>
-                <div class="hero-stat" role="listitem">
-                    <span class="hero-stat-number">Applied Materials · Ford</span>
-                    <span class="hero-stat-label">Key Employers</span>
-                </div>
-                <div class="hero-stat-divider" aria-hidden="true"></div>
-                <div class="hero-stat" role="listitem">
-                    <span class="hero-stat-number">PMP</span>
-                    <span class="hero-stat-label">Certified</span>
-                </div>
-            </div>
+<a class="nav-btn" href="#">Contact</a>
 
-        </div>
-    </main>
+<a class="nav-btn" href="#">Resume</a>
 
-    <footer>
-        <div class="footer-left">San Francisco Bay Area · Hardware · Manufacturing · Operations</div>
-        <div class="footer-right">
-            <a href="https://www.linkedin.com/in/sourabh-tarodekar/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn profile">
-                <i data-lucide="linkedin" size="16" aria-hidden="true"></i> LinkedIn
-            </a>
-            <a href="mailto:sourabh232@gmail.com" class="social-link" aria-label="Email Sourabh">
-                <i data-lucide="mail" size="16" aria-hidden="true"></i> Email
-            </a>
-            <a href="resume.html" class="resume-btn" aria-label="View resume">
-                <i data-lucide="file-text" size="13" aria-hidden="true"></i> Resume
-            </a>
-        </div>
-    </footer>
+<button class="theme-btn" id="themeBtn">
+Mode
+</button>
 
-    <script src="shared.js"></script>
+</div>
+
+</header>
+
+<main>
+
+<div class="hero-left">
+
+<h1>
+Driving capital-intensive hardware programs from concept to
+<span class="highlight">
+manufacturing scale
+</span>
+</h1>
+
+<div class="description">
+Owning end-to-end execution of capital equipment programs, including semiconductor infrastructure deployment, manufacturing readiness, and capacity scaling across global hardware environments.
+</div>
+
+<div class="badge-row">
+
+<div class="badge">Applied Materials</div>
+
+<div class="badge">Ford Motor Company</div>
+
+<div class="badge">PMP®</div>
+
+<div class="badge">7+ Years Experience</div>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="stat">
+<div class="stat-tag">CapEx</div>
+<div class="stat-value">$63M+</div>
+<div class="stat-label">Portfolio Managed</div>
+</div>
+
+<div class="stat">
+<div class="stat-tag">Delivery</div>
+<div class="stat-value">161+</div>
+<div class="stat-label">Systems Delivered</div>
+</div>
+
+<div class="stat">
+<div class="stat-tag">Programs</div>
+<div class="stat-value">6</div>
+<div class="stat-label">Infrastructure Programs Led</div>
+</div>
+
+<div class="stat">
+<div class="stat-tag">Analytics</div>
+<div class="stat-value">48K+</div>
+<div class="stat-label">Operations Records Analyzed</div>
+</div>
+
+</div>
+
+</main>
+
+<footer>
+
+<div>
+SF Bay Area, CA · <span id="year"></span>
+</div>
+
+<div class="links">
+
+<a href="https://linkedin.com">LinkedIn</a>
+
+<a href="https://github.com">GitHub</a>
+
+<a href="mailto:sourabh232@gmail.com">Email</a>
+
+</div>
+
+</footer>
+
+</div>
+
+<script>
+
+document.getElementById("year").textContent=new Date().getFullYear();
+
+const themes=["","light-mode","exec-mode"];
+let t=0;
+
+document.getElementById("themeBtn").onclick=function(){
+
+t=(t+1)%themes.length;
+
+document.body.className=themes[t];
+
+};
+
+</script>
+
 </body>
 </html>
